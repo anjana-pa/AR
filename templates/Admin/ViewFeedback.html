@@ -1,0 +1,40 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Untitled Document</title>
+</head>
+{% extends "Admin/Adminindex.html" %}
+
+{% block body %}
+    <title>View Complaint And Send Reply</title>
+
+<body>
+<form id="form1" name="form1" method="post" action="/Myapp/AdminViewFeedack_post/">
+{% csrf_token %}
+<h2 align="center">Feedback</h2>
+    <br>
+    <br>
+{#<table><tr><td>From</td><td><input type="text" name="frm"/>#}
+{#</td><td>To</td><td><input type="text" name="frm"/></td><td><input type="submit" name="button2" id="button2" value="Submit" /></td></tr></table>#}
+  <table class="table table-bordered">
+    <tr>
+      <th scope="row">SL No</th>
+      <th>Username</th>
+      <th>Date</th>
+      <th>Feedback</th>
+    </tr>
+      {% for i in data %}
+    <tr>
+      <th scope="row">{{ forloop.counter }}</th>
+       <td>{{  i.USER.UserName}}</td>
+      <td>{{  i.Date}}</td>
+      <td>{{  i.feedback}}</td>
+
+    </tr>
+       {% endfor %}
+  </table>
+</form>
+</body>
+{% endblock %}
+</html>

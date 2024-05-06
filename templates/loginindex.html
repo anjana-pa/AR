@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="zxx">
+
+<head>
+    <title>Gathering Log In form Responsive Widget Template :: W3layouts</title>
+    <!-- Meta tag Keywords -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta charset="UTF-8" />
+    <!-- Font Awesome CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <!-- Style-CSS -->
+    <link rel="stylesheet" href="/static/login/css/style.css" type="text/css" media="all" />
+</head>
+
+<body>
+    <div class="w3l-signinform">
+        <div class="wrapper">
+            <div class="w3l-form-info">
+                <div class="w3_info">
+                    <h1>Welcome</h1>
+                    <h2>Log In</h2>
+                    <form action="/Myapp/login_post/" method="post">
+                        {% csrf_token %}
+                        <div class="input-group">
+                            <span><i class="fa fa-user" aria-hidden="true"></i></span>
+                            <input type="text" placeholder="Email or Username" name="textfield" required>
+                        </div>
+                        <div class="input-group two-groop">
+                            <span><i class="fa fa-password" aria-hidden="true"></i></span>
+                            <input type="password" id="passwordInput" placeholder="Password" name="textfield2" required>
+                            <span id="togglePassword" class="eye-icon" onclick="togglePasswordVisibility()">
+                                <i id="passwordIcon" class="fa fa-eye-slash" aria-hidden="true"></i>
+                            </span>
+                        </div>
+                        <a href="/Myapp/forgot_pass/" class="forgot">Forgot password?</a>
+                        <button class="btn btn-primary btn-block" type="submit">Log In</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- JavaScript for toggling password visibility -->
+    <script>
+        function togglePasswordVisibility() {
+            var passwordInput = document.getElementById("passwordInput");
+            var passwordIcon = document.getElementById("passwordIcon");
+
+            if (passwordInput.type === "password") {
+                passwordInput.type = "text";
+                passwordIcon.classList.remove("fa-eye-slash");
+                passwordIcon.classList.add("fa-eye");
+            } else {
+                passwordInput.type = "password";
+                passwordIcon.classList.remove("fa-eye");
+                passwordIcon.classList.add("fa-eye-slash");
+            }
+        }
+    </script>
+</body>
+
+</html>

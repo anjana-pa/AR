@@ -1,0 +1,89 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+       <style>
+th, td {
+  border: 2px solid black;
+    border-color: #96D4D4;
+}
+</style>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Untitled Document</title>
+</head>
+{% extends "Admin/Adminindex.html" %}
+
+{% block body %}
+<body><form action="/Myapp/EditStaff_post/" method="post" enctype="multipart/form-data">
+    {% csrf_token %}
+
+    <input type="hidden" name="id" id="id" class="form-control"  />
+<h2 align="center">Edit Staff</h2>
+    <br>
+    <br>
+    <table class="table table-striped table-dark">
+<input type="hidden" name="id" id="id" class="form-control" value="{{ data.id }}" />
+  <tr>
+    <th scope="row">Name</th>
+    <td><input type="text" name="textfield" id="textfield" class="form-control" value="{{ data.Name }}" /></td>
+  </tr>
+  <tr>
+    <th scope="row">Address</th>
+    <td><input type="text" name="textfield2" id="textfield2" class="form-control"  value="{{ data.Address }}"/></td>
+  </tr>
+  <tr>
+    <th scope="row">DOB</th>
+    <td><input type="text" name="textfield3" id="textfield3" class="form-control"  value="{{ data.DOB|date:"Y-m-d" }}" /></td>
+  </tr>
+  <tr>
+    <th scope="row">Phone</th>
+    <td><input type="text" name="textfield4" id="textfield4"  class="form-control"  value="{{ data.Phone }}"/></td>
+  </tr>
+  <tr>
+    <th scope="row">Email</th>
+    <td><input type="text" name="textfield5" id="textfield5" class="form-control"  value="{{ data.Email }}" /></td>
+  </tr>
+  <tr>
+    <th scope="row">Photo</th>
+    <td><img src="{{ data.Photo }}" width="100" height="100">
+        <input type="file" name="fileField" id="fileField"  class="form-control"  value="{{ data.Photo }}"/></td>
+  </tr>
+  <tr>
+    <th scope="row">Gender</th>
+    <td><p>
+      <label>
+        <input type="radio" name="RadioGroup1" value="Male" id="RadioGroup1_0" {% if data.Gender == "Male" %} checked {% endif %} />
+        Male</label>
+      <br />
+      <label>
+        <input type="radio" name="RadioGroup1" value="Female" id="RadioGroup1_1" {% if data.Gender == "Female" %} checked {% endif %} />
+        Female</label>
+      <br />
+      <label>
+        <input type="radio" name="RadioGroup1" value="Others" id="RadioGroup1_2" {% if data.Gender == "Others" %} checked {% endif %}/>
+        Others</label>
+      <br />
+    </p></td>
+  </tr>
+  <tr>
+    <th scope="row">Specialization</th>
+    <td><select name="select" id="select" class="form-control"  value="{{ data.Type }}">
+    <option value="Designer"> Designer</option>
+          <option value="Storage Manager"> Storage Manager</option>
+          <option value="Sales Officer">Sales Officer</option>
+          <option value="Finisher "> Finisher</option>
+          <option value="Delivery Manager ">Delivery Manager </option>
+    </select></td>
+  </tr>
+  <tr>
+    <th scope="row">Year of Experience</th>
+    <td><input type="text" name="textfield7" id="textfield7" class="form-control"  value="{{ data.Experience }}" /></td>
+  </tr>
+  <tr>
+    <th scope="row">&nbsp;</th>
+    <td><input type="submit" name="button" id="button" value="Update" /></td>
+  </tr>
+</table>
+</form>
+</body>
+{% endblock %}
+</html>

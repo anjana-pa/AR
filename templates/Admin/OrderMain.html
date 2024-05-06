@@ -1,0 +1,53 @@
+{% extends "Admin/Adminindex.html" %}
+
+{% block body %}
+<body>
+    <style>
+th, td {
+  border: 1px solid black;
+    border-color: #96D4D4;
+}
+</style>
+<form action="/Myapp/view_paymentstatus_search/" method="post">
+    {% csrf_token %}
+
+<h2 align="center">Orders</h2>
+    <br>
+    <br>
+<table class="table table-striped table-dark">
+{# <tr>#}
+{#    <td><input name="search" type="text" /></td>#}
+{#    <td><input name="input" type="submit" value="Search" class="btn btn-success" /></td>#}
+{#  </tr>#}
+</table>
+<table class="table table-striped table-dark">
+  <tr>
+    <th>SL No</th>
+    <th>Date</th>
+      <th>UserName</th>
+    <th>Amount</th>
+    <th>Status</th>
+      <th></th>
+      <th></th>
+  </tr>
+    {% for i in data %}
+  <tr>
+    <td>{{ forloop.counter }}</td>
+    <td>{{ i.Date }}</td>
+      <td>{{ i.USER.UserName }}</td>
+    <td>{{ i.Amount}}</td>
+    <td>{{  i.status}}</td>
+{#    <td>{{ i.post }}<br>{{ i.pin }}<br>{{ i.district }}</td>#}
+    <td><a href="/Myapp/Order_sub/{{ i.id }}" class="btn btn-info btn-group-toggle fa fa-edit"> More</a></td>
+      <td><a href="/Myapp/generate_pdf/{{ i.id }}" class="btn btn-info btn-group-toggle fa fa-edit">Generate Bill</a></td>
+{#      <td><a href="/Myapp/delete_ordermain/{{ i.id }}" class="btn btn-danger">Delete</a></td>#}
+
+{#   <td><a href="/myapp/delete_bookingdetails/{{ i.id }}" onclick="return confirm('Do you want to delete?')" class="btn btn-danger btn-group-toggle fa fa-trash"></a></td>#}
+  </tr>
+    {% endfor %}
+</table>
+
+</form>
+</body>
+{% endblock %}
+{#</html>#}

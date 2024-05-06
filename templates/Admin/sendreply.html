@@ -1,0 +1,37 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+       <style>
+th, td {
+  border: 1px solid black;
+    border-color: #96D4D4;
+}
+</style>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Untitled Document</title>
+</head>
+{% extends "Admin/Adminindex.html" %}
+
+{% block body %}
+
+<body>
+<form id="form1" name="form1" method="post" action="/Myapp/sendreply_POST/">
+    {% csrf_token %}
+    <input type="hidden" Name="id"value="{{ id }}">
+    <h2 align="center">Reply</h2>
+    <br>
+    <br>
+  <table class="table table-bordered">
+    <tr>
+      <th scope="row">Reply </th>
+      <td><input type="text" name="textfield" class="form-control" REQUIRED/></td>
+    </tr>
+
+    <tr align="center">
+      <td colspan="2"><input type="submit" name="Submit" value="Send"  class="btn btn-info"/></td>
+    </tr>
+  </table>
+</form>
+</body>
+{% endblock %}
+</html>

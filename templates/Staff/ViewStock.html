@@ -1,0 +1,66 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+     <style>
+th, td {
+  border: 1px solid black;
+    border-color: #96D4D4;
+}
+</style>
+
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Untitled Document</title>
+</head>
+{% extends "Staff/Staff_index.html" %}
+
+{% block body %}
+<body><form action="/Myapp/ViewStock_post/" method="post"><table width="200" border="1">
+    <br>
+    <br>
+    <br>
+    <br>
+{#  <tr>#}
+{#    <th scope="row">&nbsp;</th>#}
+{#    <td><input type="submit" name="button" id="button" value="Search" /></td>#}
+{#  </tr>#}
+</table>
+  <table  class="table table-striped table-light">
+    <tr>
+      <th scope="row">SL No</th>
+         <th>Image</th>
+{#      <td>Category Name</td>#}
+      <th>Product Name</th>
+     <th>MRP</th>
+    <th>Offer Price</th>
+{#    <td>Colour</td>#}
+    <th><p>Material</p></th>
+    <th>RoomType</th>
+         <th>Quantity</th>
+
+{#    <td>&nbsp;</td>#}
+{#    <td>&nbsp;</td>#}
+{#    <td>&nbsp;</td>#}
+  </tr>
+    {% for i in data %}
+        <tr>
+        <th scope="row">{{ forloop.counter }}&nbsp;</th>
+            <td><img src="{{ i.PRODUCT.Image }}" height="100px" width="100px"> </td>
+{#     <td>{{ i..Name}}&nbsp;</td>#}
+    <td>&nbsp;{{ i.PRODUCT.Product_Name }}</td>
+    <td>{{ i.PRODUCT.MRP}}</td>
+    <td>{{ i.PRODUCT.Offer_Price }}&nbsp;</td>
+{#    <td>{{ i.Colour}}&nbsp;</td>#}
+    <td>{{ i.PRODUCT.Primary_Material }}</td>
+    <td>{{ i.PRODUCT.Room_Type  }}</td>
+              <td>{{ i.Quantity}}</td>
+
+{#    <td><a href="/Myapp/EditProduct/{{ i.id }}" class="btn btn-warning">Edit</a></td>#}
+{#    <td><a href="/Myapp/delete_product/{{ i.id }}" class="btn btn-danger">Delete</a></td>#}
+{#    <td><a href="/Myapp/Stock/{{ i.id }}" class="btn btn-warning">Update Stock</a></td>#}
+  </tr>
+    {% endfor %}
+  </table>
+</form>
+</body>
+{% endblock %}
+</html>

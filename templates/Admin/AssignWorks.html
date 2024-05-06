@@ -1,0 +1,99 @@
+
+{% extends "Admin/Adminindex.html" %}
+
+{% block body %}
+    <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Untitled Document</title>
+</head>
+<body><form action="/Myapp/AssignWorks_post/" method="post" enctype="multipart/form-data">
+ {% csrf_token %}
+    <input type="hidden" name="id" id="id" class="form-control"  />
+
+<h2 align="center">Assign  Customization Works</h2>
+    <br>
+    <br>
+    <table width="200" border="1" class="table table-success table-striped">
+
+  <tr>
+  <input type="hidden" name="id" value="{{ data2.id }}">
+    <th scope="row">Staff</th>
+    <td><label for="select"></label>
+      <select name="select"  id="trailerSelect" class="form-control">
+              <option selected disabled>Select a Staff</option>
+
+          {% for i in data %}
+          <option value="{{ i.id }}">{{ i.Name }}</option>
+          {% endfor %}
+      </select></td>
+
+  </tr>
+
+{#     <tr>#}
+{#    <th scope="row">Description</th>#}
+{#    <td>&nbsp;        <input type="text" name="textfield1" id="textfield" class="form-control"/>#}
+{#</td>#}
+{#  </tr>#}
+
+    <tr>
+        <th>Startdate</th>
+
+{#        <td b><input type="date" name="textfield3" id="textfield" min="{{ current_date }}"/></td>#}
+        <td b><input type="date" name="textfield3" id="textfield" min="{{ dt|date:'Y-m-d' }}"/></td>
+    </tr>
+    <tr>
+        <th>Enddate</th>
+        <td>
+            <input type="date" name="textfield4" id="textfield" min="{{ dt|date:'Y-m-d' }}" /></td>
+    </tr>
+
+{#     <tr>#}
+{#    <th scope="row">Duration</th>#}
+{#    <td>&nbsp;       <input type="text" name="textfield5" id="textfield" class="form-control"/>#}
+{#</td>#}
+{#  </tr>#}
+     <tr>
+    <th scope="row">Priority</th>
+    <td><label for="select3"></label>
+      <select name="select3" id="select3" class="form-control" pattern="[A-Z a-z.]" required>
+          <option value="High">High</option>
+          <option value="Medium">Medium</option>
+          <option value="Low">Low</option>
+      </select></td>
+  </tr>
+  <tr>
+    <th scope="row">&nbsp;</th>
+    <td><input type="submit" name="button" id="button" value="Submit" class="btn btn-info" /></td>
+  </tr>
+</table>
+</form>
+</body>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script>
+$(document).ready(function() {
+  $.ajax({
+    url: '/Myapp/get_available_trailers/', // URL to your Django view
+    type: 'GET',
+    success: function(response) {
+      $('#trailerSelect').empty(); // Clear the select box
+      $.each(response, function(index, Staff) {
+        $('#trailerSelect').append($('<option>', {
+          value: Staff.id,
+          text: Staff.Name
+        }));
+      });
+    },
+    error: function(xhr, status, error) {
+      console.error(xhr.responseText);
+    }
+  });
+});
+</script>
+
+
+</html>
+{% endblock %}
+

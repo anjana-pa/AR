@@ -1,0 +1,112 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Untitled Document</title>
+</head>
+{% extends "Staff/Staff_index.html" %}
+
+{% block body %}
+<body>
+<br><br><br><br>
+<form action="/Myapp/Edit_Product_post/" method="post" enctype="multipart/form-data" name="form1" id="form1" enctype="multipart/form-data">
+{% csrf_token %}
+
+<h2 align="center">Edit Product</h2>
+    <br>
+    <br>
+<table class="table table-striped table-light">
+<input type="hidden" name="id" class="form-control" value="{{ data.id }}">
+  <tr>
+    <th scope="row">Category</th>
+    <td><label for="select"></label>
+      <select name="select" id="select" class="form-control" required>
+{#                    <option  value="{{ data.CATEGORY.id }}">{{ i.CATEGORY.Name }}</option>#}
+
+          {% for i in d %}
+              <option value="{{ i.id }}" {% if data.SUBCATEGORY.id == i.SUBCATEGORY.id %} selected {% endif %}>{{ i.Name }}</option>
+          {% endfor %}
+      </select></td>
+  </tr>
+  <tr>
+    <th scope="row">Product Name</th>
+    <td><label for="textfield"></label>
+      <input type="text" name="textfield" id="textfield" class="form-control"  value="{{ data.Product_Name }}" required/></td>
+  </tr>
+  <tr>
+    <th scope="row">MRP</th>
+    <td><label for="textfield2"></label>
+      <input type="text" name="textfield2" id="textfield2" class="form-control" pattern="{0,9}" value="{{ data.MRP }}" required/></td>
+  </tr>
+  <tr>
+    <th scope="row">Offer Price</th>
+    <td><label for="textfield3"></label>
+      <input type="text" name="textfield3" id="textfield3" class="form-control" pattern="{0,9}" value="={{ data.Offer_Price }}" required/></td>
+  </tr>
+  <tr>
+    <th scope="row">Colour</th>
+    <td><label for="textfield4"></label>
+      <input type="text" name="textfield4" id="textfield4" class="form-control"  value="{{ data.Colour }}" required/></td>
+  </tr>
+  <tr>
+    <th scope="row">Description</th>
+    <td><label for="textfield5"></label>
+      <input type="text" name="textfield5" id="textfield5" class="form-control" pattern="{0,9}" value="{{ data.Description }}" required/></td>
+  </tr>
+{#  <tr>#}
+{#    <th scope="row">Dimensions</th>#}
+{#    <td><label for="textfield6"></label>#}
+{#      <input type="text" name="textfield6" id="textfield6" value="{{ data.Dimensions }}" /></td>#}
+{#  </tr>#}
+  <tr>
+    <th scope="row">Primary material</th>
+    <td><label for="select2"></label>
+      <select name="select2" id="select2" class="form-control" pattern="[A-Z a-z.]" required>
+          <option value="{{ data.Primary_Material}}">{{ data.Primary_Material }}</option>
+          <option value="Wood">Wood</option>
+          <option value="Plywood">Plywood</option>
+          <option value="Plastic">Plastic</option>
+           <option value="Linen">Linen</option>
+          <option value="Sateen">Sateen</option>
+          <option value="Velvet Fabric">Velvet Fabric</option>
+          <option value="Polyster">Polyster</option>
+      </select></td>
+  </tr>
+  <tr>
+    <th scope="row">Room Type</th>
+    <td><label for="select3"></label>
+      <select name="select3" id="select3" class="form-control" pattern="[A-Z a-z.]" required>
+          <option value="{{ data.Room_Type}}">{{ data.Room_Type }}</option>
+          <option value="Living Area">Living Area</option>
+          <option value="Bed room">Bed room</option>
+          <option value="Dining Area">Dining Area</option>
+          <option value="Out Doors">Out Doors</option>
+          <option value="Office Room">Office Room</option>
+          <option value="Study Room">Study Room</option>
+      </select></td>
+  </tr>
+  <tr>
+    <th scope="row">Image</th>
+    <td><label for="fileField"></label>
+      <input type="file" name="fileField" id="fileField" class="form-control" value="{{ data.Image }}" accept="image/*" /></td>
+  </tr>
+<tr>
+    <th scope="row">Image1</th>
+    <td><label for="fileField"></label>
+      <input type="file" name="fileField1" id="fileField1" class="form-control" value="{{ data.Image1 }}" accept="image/*" /></td>
+  </tr>
+<tr>
+    <th scope="row">Image2</th>
+    <td><label for="fileField"></label>
+      <input type="file" name="fileField2" id="fileField2" class="form-control" value="{{ data.Image2 }}" accept="image/*" /></td>
+  </tr>
+  <tr>
+    <th scope="row">&nbsp;</th>
+    <td><input type="submit" name="button" id="button" value="Edit" class="btn btn-success"/></td>
+  </tr>
+</table>
+</form>
+
+</body>
+{% endblock %}
+</html>

@@ -1,0 +1,246 @@
+{% load static%}
+<html lang="zxx">
+<head>
+<title>Dazzling Multi Forms Flat Responsive Widget Template :: w3layouts</title>
+<!-- for-mobile-apps -->
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="keywords" content="Dazzling Multi Forms Responsive web template, Bootstrap Web Templates, Flat Web Templates, Android Compatible web template, 
+Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, SonyEricsson, Motorola web design" />
+<script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false);
+		function hideURLbar(){ window.scrollTo(0,1); } </script>
+<!-- //for-mobile-apps -->
+<link href="/static/registration/css/style.css" rel="stylesheet" type="text/css" media="all" />
+<link rel="stylesheet" href="/static/registration/css/flexslider.css" type="text/css" media="screen" property="" />
+<!-- js -->
+<script src="js/jquery-2.2.3.min.js"></script> 
+<!-- //js -->
+<link href="//fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet">
+</head>
+<body>
+	<div class="main">
+		<h1>Dazzling Multi Forms</h1>
+		<p class="agile_para">Donec commodo est dolor, sed dignissim odio consequat consectetur. In sit amet sem molestie,
+			euismod nunc mattis, interdum nibh.</p>
+		<div class="w3_agile_main_grids">
+			<section class="slider">
+				<div class="flexslider">
+					<ul class="slides">
+						<li>
+							<div class="agileits_w3layouts_main_grid">
+								<h3>Enquiry Form</h3>
+								<form action="/Myapp/StaffRegistration_post/" method="post">
+                                    {% csrf_token %}
+									<span>
+										<label>name</label>
+										<input name="Name" type="text" placeholder="Your Name" required="">
+									</span>
+									<span>
+										<label>email</label>
+										<input name="Email" type="email" placeholder="Your Email" required="">
+									</span>
+									<span>
+										<label>Mobile</label>
+										<input name="Mobile" type="text" placeholder="Mobile Number" required="">
+									</span>
+									<span>
+										<label>Fax</label>
+										<input name="Fax" type="text" placeholder="Fax Number" required="">
+									</span>
+									<span>
+										<label>Country</label>
+										<select onchange="change_country(this.value)" required="">
+											<option value="">Australia</option>
+											<option value="">Africa</option>         
+											<option value="">Belgium</option>
+											<option value="">Brazil</option>
+											<option value="">China</option>
+											<option value="">More</option>
+										</select>
+									</span>
+									<span>
+										<label>Address</label>
+										<input name="Address" type="text" placeholder="Your Address" required="">
+									</span>
+									<span>
+										<label>Enquiry</label>
+										<input name="Enquiry" type="text" placeholder="Sales Enquiry" required="">
+									</span>
+									<span>
+										<label>ZIP / Pin</label>
+										<input name="ZIP / Pin" type="text" placeholder="ZIP / Pin Code" required="">
+									</span>
+									<div class="w3_agileits_submit">
+										<input type="submit" value="submit">
+										<input type="reset" value="reset">
+									</div>
+								</form>
+							</div>
+						</li>
+						<li>
+							<div class="agileits_w3layouts_main_grid">
+								<h3>Registration Form</h3>
+								<form action="#" method="post">
+									<span>
+										<label>name</label>
+										<input name="Name" type="text" placeholder="First Name" required="">
+									</span>
+									<span>
+										<label>name</label>
+										<input name="Name" type="text" placeholder="Last Name" required="">
+									</span>
+									<span>
+										<label>email</label>
+										<input name="Email" type="email" placeholder="Your Email" required="">
+									</span>
+									<span>
+										<label>Password</label>
+										<input name="Password" type="Password" id="password1" placeholder="Your Password" required="">
+									</span>
+									<span>
+										<label>Password</label>
+										<input name="Password" type="Password" id="password2" placeholder="Confirm Password" required="">
+									</span>
+									<span>
+										<label>Mobile</label>
+										<input name="Mobile" type="text" placeholder="Mobile Number" required="">
+									</span>
+									<span>
+										<label>Fax</label>
+										<input name="Fax" type="text" placeholder="Fax Number" required="">
+									</span>
+									<span>
+										<label>Address</label>
+										<input name="Address" type="text" placeholder="Your Address" required="">
+									</span>
+									<div class="w3_agileits_submit">
+										<input type="submit" value="submit">
+										<input type="reset" value="reset">
+									</div>
+								</form>
+							</div>
+						</li>
+						<li>
+							<div class="agileits_w3layouts_main_grid">
+								<h3>Feedback Form</h3>
+								<form action="#" method="post">
+									<span>
+										<label>name</label>
+										<input name="Name" type="text" placeholder="Your Name" required="">
+									</span>
+									<span>
+										<label>email</label>
+										<input name="Email" type="email" placeholder="Your Email" required="">
+									</span>
+									<span>
+										<label>Mobile</label>
+										<input name="Mobile" type="text" placeholder="Mobile Number" required="">
+									</span>
+									<span>
+										<label>Organization</label>
+										<input name="Organization" type="text" placeholder="Organization Name" required="">
+									</span>
+									<span>
+										<label>Products</label>
+										<select onchange="change_country(this.value)" required="">
+											<option value="">Product 1</option>
+											<option value="">Product 2</option>         
+											<option value="">Product 3</option>
+											<option value="">Product 4</option>
+											<option value="">Product 5</option>
+											<option value="">More</option>
+										</select>
+									</span>
+									<span>
+										<label>Address</label>
+										<input name="Address" type="text" placeholder="Your Address" required="">
+									</span>
+									<span>
+										<label>Security</label>
+										<input name="Security" type="text" placeholder="Security Check" required="">
+									</span>
+									<span>
+										<label>Enquiry</label>
+										<input name="Enquiry" type="text" placeholder="Sales Enquiry" required="">
+									</span>
+									<div class="w3_agileits_submit">
+										<input type="submit" value="submit">
+										<input type="reset" value="reset">
+									</div>
+								</form>
+							</div>
+						</li>
+						<li>
+							<div class="agileits_w3layouts_main_grid">
+								<h3>Contact Form</h3>
+								<form action="#" method="post">
+									<span>
+										<label>Name</label>
+										<input name="Name" type="text" placeholder="Your Name" required="">
+									</span>
+									<span>
+										<label>Email</label>
+										<input name="Email" type="email" placeholder="Your Email" required="">
+									</span>
+									<span>
+										<label>Mobile</label>
+										<input name="Mobile" type="text" placeholder="Mobile Number" required="">
+									</span>
+									<span>
+										<label>Website</label>
+										<input name="Website" type="text" placeholder="URL" required="">
+									</span>
+									<span>
+										<label>Address</label>
+										<input name="Address" type="text" placeholder="Your Address" required="">
+									</span>
+									<div class="agileinfo_map">
+										<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d387142.84038702346!2d-74.25819125880415!3d40.70583158896605!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c24fa5d33f083b%3A0xc80b8f06e177fe62!2sNew+York%2C+NY%2C+USA!5e0!3m2!1sen!2sin!4v1484999954133" style="border:0"></iframe>
+									</div>
+									<div class="w3_agileits_submit">
+										<input type="submit" value="submit">
+										<input type="reset" value="reset">
+									</div>
+								</form>
+							</div>
+						</li>
+					</ul>
+				</div>
+			</section>
+		</div>
+		<div class="agileits_copyright">
+			<p>© 2017 Dazzling Multi Forms. All rights reserved | Design by <a href="//w3layouts.com/">W3layouts</a></p>
+		</div>
+	</div>
+<!-- password -->
+	<script type="text/javascript">
+		window.onload = function () {
+			document.getElementById("password1").onchange = validatePassword;
+			document.getElementById("password2").onchange = validatePassword;
+		}
+		function validatePassword(){
+			var pass2=document.getElementById("password2").value;
+			var pass1=document.getElementById("password1").value;
+			if(pass1!=pass2)
+				document.getElementById("password2").setCustomValidity("Passwords Don't Match");
+			else
+				document.getElementById("password2").setCustomValidity('');	 
+				//empty string means no validation error
+		}
+	</script>
+<!-- password -->
+<!-- flexSlider -->
+	<script defer src="js/jquery.flexslider.js"></script>
+	<script type="text/javascript">
+		$(window).load(function(){
+		  $('.flexslider').flexslider({
+			animation: "slide",
+			start: function(slider){
+			  $('body').removeClass('loading');
+			}
+		  });
+		});
+	</script>
+<!-- //flexSlider -->
+</body>
+</html>

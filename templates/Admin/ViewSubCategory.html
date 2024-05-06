@@ -1,0 +1,68 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+       <style>
+th, td {
+  border: 1px solid black;
+    border-color: #96D4D4;
+}
+</style>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Untitled Document</title>
+{#        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">#}
+
+</head>
+{#  <style>#}
+{#    /* Custom styles for dark-themed table */#}
+{#    .dark-table {#}
+{#      color: #fff; /* Text color */#}
+{#      background-color: #343a40; /* Background color */#}
+{#    }#}
+{##}
+{#    .dark-table th,#}
+{#    .dark-table td {#}
+{#      border-color: #454d55; /* Border color */#}
+{#    }#}
+{#  </style>#}
+{#<style>#}
+{#    .table{#}
+{#        background-color: black;#}
+{#    }#}
+{#</style>#}
+{% extends "Admin/Adminindex.html" %}
+
+{% block body %}
+<body><form action="/Myapp/SViewSubCategory_post/" method="post">
+    {% csrf_token %}
+
+    <input type="hidden" name="id" id="id" class="form-control"  />
+<h2 align="center">View Category</h2>
+    <br>
+    <br>
+      <table class="table table-striped table-dark">
+{#    <tr class="bg-dark">#}
+{#          <tr>#}
+{#      <th scope="row"><input type="text" name="textfield" id="textfield" /></th>#}
+{#      <td><input type="submit" name="button" id="button" value="Search" class="btn btn-success" /></td>#}
+{#    </tr>#}
+  </table>
+    <table class="table table-striped table-dark">
+  <tr style="background-color: #cce5ff">
+    <th scope="row">SL No</th>
+    <th>Category Name</th>
+    <th>Image</th>
+  </tr>
+        {% for i in data %}
+  <tr>
+    <th scope="row">&nbsp;{{ forloop.counter }}</th>
+    <td>&nbsp;{{ i.Name }}</td>
+    <td>&nbsp;<img src="{{ i.Image }}" width="100" height="100"></td>
+
+{#    <td><a href="/Myapp/delete_category/{{ i.id }}" onclick="return confirm('Are You Sure?')" class="btn btn-danger">Delete</a></td>#}
+  </tr>
+        {% endfor %}
+</table>
+</form>
+</body>
+{% endblock %}
+</html>

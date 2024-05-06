@@ -1,0 +1,42 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+       <style>
+th, td {
+  border: 1px solid black;
+    border-color: #96D4D4;
+}
+</style>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Category</title>
+</head>
+{% extends "Admin/Adminindex.html" %}
+
+{% block body %}
+<body>
+<form action="/Myapp/AddCategory_post/" method="post" enctype="multipart/form-data" name="form1" id="form1">
+    {% csrf_token %}
+    <input type="hidden" name="id" id="id" class="form-control"  />
+<h2 align="center">Category</h2>
+    <br>
+    <br>
+  <table class="table table-success table-striped">
+
+    <tr >
+      <th scope="row">Category Name</th>
+      <td><input type="text" name="textfield" id="textfield" class="form-control" required  /></td>
+    </tr>
+    <tr>
+      <th scope="row">Image</th>
+      <td>
+          <input type="file" name="fileField" id="fileField"  class="form-control" accept="image/*" /></td>
+    </tr>
+    <tr>
+      <th scope="row">&nbsp;</th>
+      <td><input type="submit" name="button" id="button" value="Add" class="btn btn-info"/></td>
+    </tr>
+  </table>
+</form>
+</body>
+{% endblock %}
+</html>

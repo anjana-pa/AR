@@ -1,0 +1,72 @@
+<html>
+<head>  <head>
+       <style>
+th, td {
+  border: 1px solid black;
+    border-color: #96D4D4;
+}
+</style></head>
+
+{% extends "Staff/Staff_index.html" %}
+
+{% block body %}
+
+<body>
+<br><br><br><br>
+<form action="/Myapp/ViewProduct_post/" method="post">
+
+<h2 align="center">View Product</h2>
+    <br>
+    <br>
+<table class="table table-striped table-light">
+{% csrf_token %}
+  <tr>
+       <td><label for="textfield"></label><input type="text" class="form-control" placeholder="product name" name="textfield" id="textfield" /></td>
+{#    <th scope="row"><input type="text" name="textfield" id="textfield" /></th>#}
+    <td><input type="submit" name="button" id="button" value="Search" class="btn btn-info"/></td>
+  </tr>
+</table>
+    <table class="table table-striped table-light" border="1px solid">
+  <tr style="background-color: #cce5ff">
+    <th scope="row">SL No</th>
+      <td><b>Category Name</b></td>
+      <td><b>Product Name</b></td>
+    <td><b>MRP</b></td>
+      <td><b>Offer Price</b></td>
+    <td><b>Colour</b></td>
+    <td><b>Description</b></td>
+    <td><b>Material</b></td>
+    <td><b>RoomType</b></td>
+    <td><b>Image</b></td>
+    <td><b>Image1</b></td>
+    <td><b>Image2</b></td>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+
+  </tr>
+    {% for i in data %}
+
+  <tr>
+    <th scope="row">{{ forloop.counter }}&nbsp;</th>
+    <td>{{ i.SUBCATEGORY.Name}}&nbsp;</td>
+    <td>&nbsp;{{ i.Product_Name }}</td>
+    <td>{{ i.MRP}}</td>
+    <td>{{ i.Offer_Price }}&nbsp;</td>
+    <td>{{ i.Colour}}&nbsp;</td>
+    <td>{{ i.Description}}</td>
+    <td>{{ i.Primary_Material }}</td>
+    <td>{{ i.Room_Type  }}</td>
+    <td><img src="{{ i.Image }}" height="100px" width="100px"> </td>
+    <td><img src="{{ i.Image1 }}" height="100px" width="100px"> </td>
+    <td><img src="{{ i.Image2 }}" height="100px" width="100px"> </td>
+    <td><a href="/Myapp/EditProduct/{{ i.id }}" class="btn btn-warning">Edit</a></td>
+    <td><a href="/Myapp/delete_product/{{ i.id }}" class="btn btn-danger">Delete</a></td>
+{#    <td><a href="/Myapp/Stock/{{ i.id }}" class="btn btn-warning">Update Stock</a></td>#}
+  </tr>
+    {% endfor %}
+</table>
+
+</form>
+</body>
+{% endblock %}
+</html>
